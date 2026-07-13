@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "figment-market"
+version = "0.1.0"
+description = "A self-play market-making arena for Figgie-style card markets: Bayesian belief, EV pricing, and evolutionary trading agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "mneha05" }]
+keywords = ["market-making", "figgie", "bayesian", "reinforcement-learning", "trading", "self-play"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "pillow>=9.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.4"]
+
+[project.scripts]
+figment = "figment.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mneha05/figment"
+Repository = "https://github.com/mneha05/figment"
+
+[tool.setuptools.packages.find]
+include = ["figment*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

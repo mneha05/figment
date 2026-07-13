@@ -1,0 +1,52 @@
+{
+  "chosen_seed": 13,
+  "goal_suit": "HEARTS",
+  "deck_counts": {
+    "SPADES": 8,
+    "CLUBS": 10,
+    "HEARTS": 10,
+    "DIAMONDS": 12
+  },
+  "tournament": {
+    "n_games": 400,
+    "leaderboard": [
+      {
+        "agent": "BayesianMM",
+        "elo": 1677.0,
+        "mean_profit": 57.88,
+        "goal_win_pct": 20.3
+      },
+      {
+        "agent": "Fundamental",
+        "elo": 1617.0,
+        "mean_profit": 42.87,
+        "goal_win_pct": 19.0
+      },
+      {
+        "agent": "Random-A",
+        "elo": 1355.0,
+        "mean_profit": -50.38,
+        "goal_win_pct": 30.7
+      },
+      {
+        "agent": "Random-B",
+        "elo": 1351.0,
+        "mean_profit": -50.37,
+        "goal_win_pct": 30.0
+      }
+    ]
+  },
+  "evolution": {
+    "generations": 14,
+    "start_best": 6.0,
+    "champion_fitness": 37.46,
+    "best_params": {
+      "base_spread": 1.98,
+      "risk_aversion": 0.0,
+      "uncertainty_weight": 1.502,
+      "signal_weight": 0.0,
+      "take_edge": 0.743,
+      "time_pressure": 0.735
+    }
+  }
+}

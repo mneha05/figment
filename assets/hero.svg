@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58a6ff"/>
+      <stop offset="0.55" stop-color="#7ee0d3"/>
+      <stop offset="1" stop-color="#3fb950"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#1b2a44" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
+  </defs>
+
+  <rect width="1200" height="360" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="360" rx="18" fill="url(#glow)"/>
+
+  <!-- faint price ladder motif -->
+  <g stroke="#1c2740" stroke-width="1" opacity="0.7">
+    <line x1="60" y1="70" x2="1140" y2="70"/>
+    <line x1="60" y1="120" x2="1140" y2="120"/>
+    <line x1="60" y1="290" x2="1140" y2="290"/>
+  </g>
+  <g opacity="0.55" filter="url(#soft)">
+    <polyline points="70,250 150,240 230,255 310,210 390,225 470,190 550,205 630,170 710,185 790,150 870,168 950,132 1030,150 1110,120"
+      fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="70,275 150,270 230,278 310,262 390,268 470,255 550,262 630,248 710,256 790,242 870,250 950,236 1030,244 1110,230"
+      fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="60" y="176" font-size="96" font-weight="800" letter-spacing="2" fill="url(#ink)">FIGMENT</text>
+  <text x="66" y="220" font-size="23" font-weight="600" fill="#c9d1d9" letter-spacing="0.5">
+    A self-play market-making arena for Figgie-style card markets
+  </text>
+  <text x="66" y="252" font-size="16" fill="#8b949e">
+    Bayesian belief &#183; expected-value pricing &#183; Avellaneda&#8211;Stoikov quoting &#183; evolutionary agents
+  </text>
+
+  <!-- suit chips -->
+  <g font-size="34" font-weight="700">
+    <g transform="translate(966,150)">
+      <rect x="-34" y="-40" width="64" height="64" rx="14" fill="#111a2b" stroke="#233047"/>
+      <text x="-16" y="6" fill="#58a6ff">&#9824;</text>
+    </g>
+    <g transform="translate(1042,150)">
+      <rect x="-34" y="-40" width="64" height="64" rx="14" fill="#111a2b" stroke="#233047"/>
+      <text x="-16" y="6" fill="#3fb950">&#9827;</text>
+    </g>
+    <g transform="translate(966,226)">
+      <rect x="-34" y="-40" width="64" height="64" rx="14" fill="#111a2b" stroke="#233047"/>
+      <text x="-16" y="6" fill="#f85149">&#9829;</text>
+    </g>
+    <g transform="translate(1042,226)">
+      <rect x="-34" y="-40" width="64" height="64" rx="14" fill="#111a2b" stroke="#233047"/>
+      <text x="-16" y="6" fill="#d6a017">&#9830;</text>
+    </g>
+  </g>
+
+  <!-- bottom tags -->
+  <g font-size="14" fill="#8b949e">
+    <text x="60" y="322">continuous double auction</text>
+    <text x="300" y="322">&#183;</text>
+    <text x="320" y="322">hidden goal suit</text>
+    <text x="470" y="322">&#183;</text>
+    <text x="490" y="322">multivariate hypergeometric inference</text>
+    <text x="800" y="322">&#183;</text>
+    <text x="820" y="322">Elo tournaments</text>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#4b5b76"/>
+    </marker>
+    <marker id="arrb" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+    <style>
+      .box{fill:#111a2b;stroke:#233047;stroke-width:1.5;}
+      .t{fill:#c9d1d9;font-size:16px;font-weight:600;}
+      .s{fill:#8b949e;font-size:12.5px;}
+      .h{fill:#58a6ff;font-size:13px;font-weight:700;letter-spacing:1px;}
+      .flow{stroke:#4b5b76;stroke-width:2;fill:none;}
+      .flowb{stroke:#58a6ff;stroke-width:2;fill:none;}
+    </style>
+  </defs>
+
+  <rect width="1200" height="560" rx="16" fill="url(#bg2)"/>
+  <text x="40" y="52" fill="#c9d1d9" font-size="24" font-weight="800">How Figment works</text>
+  <text x="40" y="78" class="s" font-size="14">from a shuffled deck to a settled pot — and the learning loop around it</text>
+
+  <!-- ENGINE SPINE -->
+  <text x="40" y="120" class="h">GAME ENGINE</text>
+
+  <g>
+    <!-- Deck -->
+    <rect class="box" x="40" y="132" width="205" height="86" rx="12"/>
+    <text x="60" y="162" class="t">1 · Random deck</text>
+    <text x="60" y="184" class="s">sizes {12,10,10,8} &#8594; suits</text>
+    <text x="60" y="203" class="s">goal = same-colour partner of 12</text>
+
+    <!-- Deal -->
+    <rect class="box" x="272" y="132" width="185" height="86" rx="12"/>
+    <text x="292" y="162" class="t">2 · Deal hands</text>
+    <text x="292" y="184" class="s">40 cards split evenly;</text>
+    <text x="292" y="203" class="s">each hand is private info</text>
+
+    <!-- Market -->
+    <rect class="box" x="484" y="132" width="230" height="86" rx="12" stroke="#58a6ff"/>
+    <text x="504" y="162" class="t">3 · Continuous double auction</text>
+    <text x="504" y="184" class="s">4 single-name order books,</text>
+    <text x="504" y="203" class="s">price-time priority, 1 card / fill</text>
+
+    <!-- Settlement -->
+    <rect class="box" x="741" y="132" width="205" height="86" rx="12"/>
+    <text x="761" y="162" class="t">4 · Settlement</text>
+    <text x="761" y="184" class="s">$10 per goal card +</text>
+    <text x="761" y="203" class="s">majority takes the remainder</text>
+
+    <path class="flow" d="M245,175 H272" marker-end="url(#arr)"/>
+    <path class="flow" d="M457,175 H484" marker-end="url(#arr)"/>
+    <path class="flow" d="M714,175 H741" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- AGENT BRAIN -->
+  <text x="40" y="270" class="h">AGENT DECISION LOOP &#8212; runs every time it is a player's turn</text>
+  <rect x="40" y="284" width="906" height="120" rx="14" fill="#0e1830" stroke="#2a3d5c" stroke-dasharray="4 4"/>
+
+  <rect class="box" x="60" y="304" width="210" height="82" rx="10"/>
+  <text x="78" y="332" class="t">Observe</text>
+  <text x="78" y="354" class="s">own hand, best bid/ask,</text>
+  <text x="78" y="372" class="s">trade tape &amp; order flow</text>
+
+  <rect class="box" x="292" y="304" width="228" height="82" rx="10" stroke="#58a6ff"/>
+  <text x="310" y="332" class="t">Bayesian belief</text>
+  <text x="310" y="354" class="s">P(goal | hand) via multivariate</text>
+  <text x="310" y="372" class="s">hypergeometric + flow tilt</text>
+
+  <rect class="box" x="542" y="304" width="188" height="82" rx="10"/>
+  <text x="560" y="332" class="t">EV valuation</text>
+  <text x="560" y="354" class="s">v&#8347; = P(goal=s)</text>
+  <text x="560" y="372" class="s">&#215; pot / E[goal cards]</text>
+
+  <rect class="box" x="752" y="304" width="174" height="82" rx="10" stroke="#58a6ff"/>
+  <text x="770" y="332" class="t">Quote (A&#8211;S)</text>
+  <text x="770" y="354" class="s">skew by inventory,</text>
+  <text x="770" y="372" class="s">spread by uncertainty</text>
+
+  <path class="flowb" d="M270,345 H292" marker-end="url(#arrb)"/>
+  <path class="flowb" d="M520,345 H542" marker-end="url(#arrb)"/>
+  <path class="flowb" d="M730,345 H752" marker-end="url(#arrb)"/>
+
+  <!-- brain plugs into the market -->
+  <path class="flowb" d="M660,304 V96 H599 V132" marker-end="url(#arrb)"/>
+  <text x="668" y="240" class="s" fill="#58a6ff">orders &#8594; book</text>
+  <path class="flowb" d="M520,132 V262 H430 V304" marker-end="url(#arrb)"/>
+  <text x="436" y="256" class="s" fill="#8b949e">market state &#8594; agent</text>
+
+  <!-- META LOOP -->
+  <text x="40" y="452" class="h">LEARNING &amp; EVALUATION</text>
+
+  <rect class="box" x="40" y="466" width="280" height="70" rx="12"/>
+  <text x="60" y="494" class="t">Arena &#183; Elo tournaments</text>
+  <text x="60" y="516" class="s">seat-rotated repeated games, multiplayer Elo</text>
+
+  <rect class="box" x="344" y="466" width="320" height="70" rx="12" stroke="#3fb950"/>
+  <text x="364" y="494" class="t">Evolutionary self-play</text>
+  <text x="364" y="516" class="s">mutate &amp; select MMParams to climb profit</text>
+
+  <rect class="box" x="688" y="466" width="258" height="70" rx="12"/>
+  <text x="708" y="494" class="t">Tuned strategy</text>
+  <text x="708" y="516" class="s">learned genome &#8594; AdaptiveMM</text>
+
+  <path class="flow" d="M320,501 H344" marker-end="url(#arr)"/>
+  <path class="flow" d="M664,501 H688" marker-end="url(#arr)"/>
+  <path class="flow" d="M817,466 V430 A8 8 0 0 0 809,422 H495" marker-end="url(#arr)"/>
+  <text x="520" y="416" class="s">feeds back the agent's parameters</text>
+</svg>
