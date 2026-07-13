@@ -53,6 +53,19 @@ def cmd_play(args: argparse.Namespace) -> None:
 def cmd_tournament(args: argparse.Namespace) -> None:
     agents = default_lineup()
     tr = run_tournament(agents, n_games=args.games, seed=args.seed)
+    if getattr(args, "json", False):
+        import json
+        payload = {
+            "n_games": tr.n_games,
+            "leaderboard": [
+                {"agent": n, "elo": round(r, 1),
+                 "mean_profit": round(float(tr.mean_profit[tr.names.index(n)]), 2),
+                 "goal_win_pct": round(100 * float(tr.goal_accuracy[tr.names.index(n)]), 1)}
+                for n, r, _ in tr.elo
+            ],
+        }
+        print(json.dumps(payload, indent=2))
+        return
     print(f"\nFIGMENT leaderboard  ·  {tr.n_games} games\n")
     print(f"{'rank':<5}{'agent':<14}{'Elo':>7}{'profit/game':>14}{'goal-win %':>12}")
     print("-" * 52)
@@ -94,6 +107,7 @@ def main(argv: list[str] | None = None) -> None:
     st = sub.add_parser("tournament", help="run a multi-game tournament + Elo")
     st.add_argument("--games", type=int, default=300)
     st.add_argument("--seed", type=int, default=0)
+    st.add_argument("--json", action="store_true", help="emit machine-readable JSON")
     st.set_defaults(func=cmd_tournament)
 
     se = sub.add_parser("evolve", help="evolve market-maker params via self-play")
